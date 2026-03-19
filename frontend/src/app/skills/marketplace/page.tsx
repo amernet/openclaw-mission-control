@@ -190,7 +190,7 @@ export default function SkillsMarketplacePage() {
     initialCategory || "all",
   );
   const [selectedRisk, setSelectedRisk] = useState<string>(
-    initialRisk || "safe",
+    initialRisk || "all",
   );
   const [currentPage, setCurrentPage] = useState(initialPage);
   const [pageSize, setPageSize] = useState(initialPageSize);
@@ -206,7 +206,7 @@ export default function SkillsMarketplacePage() {
     ApiError
   >(undefined, {
     query: {
-      enabled: Boolean(isSignedIn && isAdmin),
+      enabled: Boolean(isSignedIn),
       refetchOnMount: "always",
       refetchInterval: 30_000,
     },
